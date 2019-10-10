@@ -89,276 +89,371 @@ var UNPACK_PREMULTIPLY_ALPHA_WEBGL = gl.UNPACK_PREMULTIPLY_ALPHA_WEBGL;
 var VENDOR = gl.VENDOR;
 var VERSION = gl.VERSION;
 var VIEWPORT = gl.VIEWPORT;
+var ext_UNMASKED_VENDOR_WEBGL = gl.getExtension('WEBGL_debug_renderer_info').UNMASKED_VENDOR_WEBGL;
+var ext_UNMASKED_RENDERER_WEBGL = gl.getExtension('WEBGL_debug_renderer_info').UNMASKED_RENDERER_WEBGL;
 
+var WebGlGetParametr = {};
 
+WebGlGetParametr.ACTIVE_TEXTURE = {};
+WebGlGetParametr.ACTIVE_TEXTURE.int = ACTIVE_TEXTURE;
+WebGlGetParametr.ACTIVE_TEXTURE.data = gl.getParameter(ACTIVE_TEXTURE);
 
-console.log("LOG: ACTIVE_TEXTURE + " + ACTIVE_TEXTURE);
-console.log(gl.getParameter(ACTIVE_TEXTURE));
+WebGlGetParametr.ALIASED_LINE_WIDTH_RANGE = {};
+WebGlGetParametr.ALIASED_LINE_WIDTH_RANGE.int = ALIASED_LINE_WIDTH_RANGE;
+WebGlGetParametr.ALIASED_LINE_WIDTH_RANGE.data = gl.getParameter(ALIASED_LINE_WIDTH_RANGE);
 
-console.log("LOG: ALIASED_LINE_WIDTH_RANGE + " + ALIASED_LINE_WIDTH_RANGE);
-console.log(gl.getParameter(ALIASED_LINE_WIDTH_RANGE));
+WebGlGetParametr.ALIASED_POINT_SIZE_RANGE = {};
+WebGlGetParametr.ALIASED_POINT_SIZE_RANGE.int = ALIASED_POINT_SIZE_RANGE;
+WebGlGetParametr.ALIASED_POINT_SIZE_RANGE.data = gl.getParameter(ALIASED_POINT_SIZE_RANGE);
 
-console.log("LOG: ALIASED_POINT_SIZE_RANGE + " + ALIASED_POINT_SIZE_RANGE);
-console.log(gl.getParameter(ALIASED_POINT_SIZE_RANGE));
+WebGlGetParametr.ALPHA_BITS = {};
+WebGlGetParametr.ALPHA_BITS.int = ALPHA_BITS;
+WebGlGetParametr.ALPHA_BITS.data = gl.getParameter(ALPHA_BITS);
 
-console.log("LOG: ALPHA_BITS + " + ALPHA_BITS);
-console.log(gl.getParameter(ALPHA_BITS));
+WebGlGetParametr.ARRAY_BUFFER_BINDING = {};
+WebGlGetParametr.ARRAY_BUFFER_BINDING.int = ARRAY_BUFFER_BINDING;
+WebGlGetParametr.ARRAY_BUFFER_BINDING.data = gl.getParameter(ARRAY_BUFFER_BINDING);
 
-console.log("LOG: ARRAY_BUFFER_BINDING + " + ARRAY_BUFFER_BINDING);
-console.log(gl.getParameter(ARRAY_BUFFER_BINDING));
+WebGlGetParametr.BLEND = {};
+WebGlGetParametr.BLEND.int = BLEND;
+WebGlGetParametr.BLEND.data = gl.getParameter(BLEND);
 
-console.log("LOG: BLEND + " + BLEND);
-console.log(gl.getParameter(BLEND));
+WebGlGetParametr.BLEND_COLOR = {};
+WebGlGetParametr.BLEND_COLOR.int = BLEND_COLOR;
+WebGlGetParametr.BLEND_COLOR.data = gl.getParameter(BLEND_COLOR);
 
-console.log("LOG: BLEND_COLOR + " + BLEND_COLOR);
-console.log(gl.getParameter(BLEND_COLOR));
+WebGlGetParametr.BLEND_DST_ALPHA = {};
+WebGlGetParametr.BLEND_DST_ALPHA.int = BLEND_DST_ALPHA;
+WebGlGetParametr.BLEND_DST_ALPHA.data = gl.getParameter(BLEND_DST_ALPHA);
 
-console.log("LOG: BLEND_DST_ALPHA + " + BLEND_DST_ALPHA);
-console.log(gl.getParameter(BLEND_DST_ALPHA));
+WebGlGetParametr.BLEND_DST_RGB = {};
+WebGlGetParametr.BLEND_DST_RGB.int = BLEND_DST_RGB;
+WebGlGetParametr.BLEND_DST_RGB.data = gl.getParameter(BLEND_DST_RGB);
 
-console.log("LOG: BLEND_DST_RGB + " + BLEND_DST_RGB);
-console.log(gl.getParameter(BLEND_DST_RGB));
+WebGlGetParametr.BLEND_EQUATION = {};
+WebGlGetParametr.BLEND_EQUATION.int = BLEND_EQUATION;
+WebGlGetParametr.BLEND_EQUATION.data = gl.getParameter(BLEND_EQUATION);
 
-console.log("LOG: BLEND_EQUATION + " + BLEND_EQUATION);
-console.log(gl.getParameter(BLEND_EQUATION));
+WebGlGetParametr.BLEND_EQUATION_ALPHA = {};
+WebGlGetParametr.BLEND_EQUATION_ALPHA.int = BLEND_EQUATION_ALPHA;
+WebGlGetParametr.BLEND_EQUATION_ALPHA.data = gl.getParameter(BLEND_EQUATION_ALPHA);
 
-console.log("LOG: BLEND_EQUATION_ALPHA + " + BLEND_EQUATION_ALPHA);
-console.log(gl.getParameter(BLEND_EQUATION_ALPHA));
+WebGlGetParametr.BLEND_EQUATION_RGB = {};
+WebGlGetParametr.BLEND_EQUATION_RGB.int = BLEND_EQUATION_RGB;
+WebGlGetParametr.BLEND_EQUATION_RGB.data = gl.getParameter(BLEND_EQUATION_RGB);
 
-console.log("LOG: BLEND_EQUATION_RGB + " + BLEND_EQUATION_RGB);
-console.log(gl.getParameter(BLEND_EQUATION_RGB));
+WebGlGetParametr.BLEND_SRC_ALPHA = {};
+WebGlGetParametr.BLEND_SRC_ALPHA.int = BLEND_SRC_ALPHA;
+WebGlGetParametr.BLEND_SRC_ALPHA.data = gl.getParameter(BLEND_SRC_ALPHA);
 
-console.log("LOG: BLEND_SRC_ALPHA + " + BLEND_SRC_ALPHA);
-console.log(gl.getParameter(BLEND_SRC_ALPHA));
+WebGlGetParametr.BLEND_SRC_RGB = {};
+WebGlGetParametr.BLEND_SRC_RGB.int = BLEND_SRC_RGB;
+WebGlGetParametr.BLEND_SRC_RGB.data = gl.getParameter(BLEND_SRC_RGB);
 
-console.log("LOG: BLEND_SRC_RGB + " + BLEND_SRC_RGB);
-console.log(gl.getParameter(BLEND_SRC_RGB));
+WebGlGetParametr.BLUE_BITS = {};
+WebGlGetParametr.BLUE_BITS.int = BLUE_BITS;
+WebGlGetParametr.BLUE_BITS.data = gl.getParameter(BLUE_BITS);
 
-console.log("LOG: BLUE_BITS + " + BLUE_BITS);
-console.log(gl.getParameter(BLUE_BITS));
+WebGlGetParametr.COLOR_CLEAR_VALUE = {};
+WebGlGetParametr.COLOR_CLEAR_VALUE.int = COLOR_CLEAR_VALUE;
+WebGlGetParametr.COLOR_CLEAR_VALUE.data = gl.getParameter(COLOR_CLEAR_VALUE);
 
-console.log("LOG: COLOR_CLEAR_VALUE + " + COLOR_CLEAR_VALUE);
-console.log(gl.getParameter(COLOR_CLEAR_VALUE));
+WebGlGetParametr.COLOR_WRITEMASK = {};
+WebGlGetParametr.COLOR_WRITEMASK.int = COLOR_WRITEMASK;
+WebGlGetParametr.COLOR_WRITEMASK.data = gl.getParameter(COLOR_WRITEMASK);
 
-console.log("LOG: COLOR_WRITEMASK + " + COLOR_WRITEMASK);
-console.log(gl.getParameter(COLOR_WRITEMASK));
+WebGlGetParametr.COMPRESSED_TEXTURE_FORMATS = {};
+WebGlGetParametr.COMPRESSED_TEXTURE_FORMATS.int = COMPRESSED_TEXTURE_FORMATS;
+WebGlGetParametr.COMPRESSED_TEXTURE_FORMATS.data = gl.getParameter(COMPRESSED_TEXTURE_FORMATS);
 
-console.log("LOG: COMPRESSED_TEXTURE_FORMATS + " + COMPRESSED_TEXTURE_FORMATS);
-console.log(gl.getParameter(COMPRESSED_TEXTURE_FORMATS));
+WebGlGetParametr.CULL_FACE = {};
+WebGlGetParametr.CULL_FACE.int = CULL_FACE;
+WebGlGetParametr.CULL_FACE.data = gl.getParameter(CULL_FACE);
 
-console.log("LOG: CULL_FACE + " + CULL_FACE);
-console.log(gl.getParameter(CULL_FACE));
+WebGlGetParametr.CULL_FACE_MODE = {};
+WebGlGetParametr.CULL_FACE_MODE.int = CULL_FACE_MODE;
+WebGlGetParametr.CULL_FACE_MODE.data = gl.getParameter(CULL_FACE_MODE);
 
-console.log("LOG: CULL_FACE_MODE + " + CULL_FACE_MODE);
-console.log(gl.getParameter(CULL_FACE_MODE));
+WebGlGetParametr.CURRENT_PROGRAM = {};
+WebGlGetParametr.CURRENT_PROGRAM.int = CURRENT_PROGRAM;
+WebGlGetParametr.CURRENT_PROGRAM.data = gl.getParameter(CURRENT_PROGRAM);
 
-console.log("LOG: CURRENT_PROGRAM + " + CURRENT_PROGRAM);
-console.log(gl.getParameter(CURRENT_PROGRAM));
+WebGlGetParametr.DEPTH_BITS = {};
+WebGlGetParametr.DEPTH_BITS.int = DEPTH_BITS;
+WebGlGetParametr.DEPTH_BITS.data = gl.getParameter(DEPTH_BITS);
 
-console.log("LOG: DEPTH_BITS + " + DEPTH_BITS);
-console.log(gl.getParameter(DEPTH_BITS));
+WebGlGetParametr.DEPTH_CLEAR_VALUE = {};
+WebGlGetParametr.DEPTH_CLEAR_VALUE.int = DEPTH_CLEAR_VALUE;
+WebGlGetParametr.DEPTH_CLEAR_VALUE.data = gl.getParameter(DEPTH_CLEAR_VALUE);
 
-console.log("LOG: DEPTH_CLEAR_VALUE + " + DEPTH_CLEAR_VALUE);
-console.log(gl.getParameter(DEPTH_CLEAR_VALUE));
+WebGlGetParametr.DEPTH_FUNC = {};
+WebGlGetParametr.DEPTH_FUNC.int = DEPTH_FUNC;
+WebGlGetParametr.DEPTH_FUNC.data = gl.getParameter(DEPTH_FUNC);
 
-console.log("LOG: DEPTH_FUNC + " + DEPTH_FUNC);
-console.log(gl.getParameter(DEPTH_FUNC));
+WebGlGetParametr.DEPTH_RANGE = {};
+WebGlGetParametr.DEPTH_RANGE.int = DEPTH_RANGE;
+WebGlGetParametr.DEPTH_RANGE.data = gl.getParameter(DEPTH_RANGE);
 
-console.log("LOG: DEPTH_RANGE + " + DEPTH_RANGE);
-console.log(gl.getParameter(DEPTH_RANGE));
+WebGlGetParametr.DEPTH_TEST = {};
+WebGlGetParametr.DEPTH_TEST.int = DEPTH_TEST;
+WebGlGetParametr.DEPTH_TEST.data = gl.getParameter(DEPTH_TEST);
 
-console.log("LOG: DEPTH_TEST + " + DEPTH_TEST);
-console.log(gl.getParameter(DEPTH_TEST));
+WebGlGetParametr.DEPTH_WRITEMASK = {};
+WebGlGetParametr.DEPTH_WRITEMASK.int = DEPTH_WRITEMASK;
+WebGlGetParametr.DEPTH_WRITEMASK.data = gl.getParameter(DEPTH_WRITEMASK);
 
-console.log("LOG: DEPTH_WRITEMASK + " + DEPTH_WRITEMASK);
-console.log(gl.getParameter(DEPTH_WRITEMASK));
+WebGlGetParametr.DITHER = {};
+WebGlGetParametr.DITHER.int = DITHER;
+WebGlGetParametr.DITHER.data = gl.getParameter(DITHER);
 
-console.log("LOG: DITHER + " + DITHER);
-console.log(gl.getParameter(DITHER));
+WebGlGetParametr.ELEMENT_ARRAY_BUFFER_BINDING = {};
+WebGlGetParametr.ELEMENT_ARRAY_BUFFER_BINDING.int = ELEMENT_ARRAY_BUFFER_BINDING;
+WebGlGetParametr.ELEMENT_ARRAY_BUFFER_BINDING.data = gl.getParameter(ELEMENT_ARRAY_BUFFER_BINDING);
 
-console.log("LOG: ELEMENT_ARRAY_BUFFER_BINDING + " + ELEMENT_ARRAY_BUFFER_BINDING);
-console.log(gl.getParameter(ELEMENT_ARRAY_BUFFER_BINDING));
+WebGlGetParametr.FRAMEBUFFER_BINDING = {};
+WebGlGetParametr.FRAMEBUFFER_BINDING.int = FRAMEBUFFER_BINDING;
+WebGlGetParametr.FRAMEBUFFER_BINDING.data = gl.getParameter(FRAMEBUFFER_BINDING);
 
-console.log("LOG: FRAMEBUFFER_BINDING + " + FRAMEBUFFER_BINDING);
-console.log(gl.getParameter(FRAMEBUFFER_BINDING));
+WebGlGetParametr.FRONT_FACE = {};
+WebGlGetParametr.FRONT_FACE.int = FRONT_FACE;
+WebGlGetParametr.FRONT_FACE.data = gl.getParameter(FRONT_FACE);
 
-console.log("LOG: FRONT_FACE + " + FRONT_FACE);
-console.log(gl.getParameter(FRONT_FACE));
+WebGlGetParametr.GENERATE_MIPMAP_HINT = {};
+WebGlGetParametr.GENERATE_MIPMAP_HINT.int = GENERATE_MIPMAP_HINT;
+WebGlGetParametr.GENERATE_MIPMAP_HINT.data = gl.getParameter(GENERATE_MIPMAP_HINT);
 
-console.log("LOG: GENERATE_MIPMAP_HINT + " + GENERATE_MIPMAP_HINT);
-console.log(gl.getParameter(GENERATE_MIPMAP_HINT));
+WebGlGetParametr.GREEN_BITS = {};
+WebGlGetParametr.GREEN_BITS.int = GREEN_BITS;
+WebGlGetParametr.GREEN_BITS.data = gl.getParameter(GREEN_BITS);
 
-console.log("LOG: GREEN_BITS + " + GREEN_BITS);
-console.log(gl.getParameter(GREEN_BITS));
+WebGlGetParametr.IMPLEMENTATION_COLOR_READ_FORMAT = {};
+WebGlGetParametr.IMPLEMENTATION_COLOR_READ_FORMAT.int = IMPLEMENTATION_COLOR_READ_FORMAT;
+WebGlGetParametr.IMPLEMENTATION_COLOR_READ_FORMAT.data = gl.getParameter(IMPLEMENTATION_COLOR_READ_FORMAT);
 
-console.log("LOG: IMPLEMENTATION_COLOR_READ_FORMAT + " + IMPLEMENTATION_COLOR_READ_FORMAT);
-console.log(gl.getParameter(IMPLEMENTATION_COLOR_READ_FORMAT));
+WebGlGetParametr.IMPLEMENTATION_COLOR_READ_TYPE = {};
+WebGlGetParametr.IMPLEMENTATION_COLOR_READ_TYPE.int = IMPLEMENTATION_COLOR_READ_TYPE;
+WebGlGetParametr.IMPLEMENTATION_COLOR_READ_TYPE.data = gl.getParameter(IMPLEMENTATION_COLOR_READ_TYPE);
 
-console.log("LOG: IMPLEMENTATION_COLOR_READ_TYPE + " + IMPLEMENTATION_COLOR_READ_TYPE);
-console.log(gl.getParameter(IMPLEMENTATION_COLOR_READ_TYPE));
+WebGlGetParametr.LINE_WIDTH = {};
+WebGlGetParametr.LINE_WIDTH.int = LINE_WIDTH;
+WebGlGetParametr.LINE_WIDTH.data = gl.getParameter(LINE_WIDTH);
 
-console.log("LOG: LINE_WIDTH + " + LINE_WIDTH);
-console.log(gl.getParameter(LINE_WIDTH));
+WebGlGetParametr.MAX_COMBINED_TEXTURE_IMAGE_UNITS = {};
+WebGlGetParametr.MAX_COMBINED_TEXTURE_IMAGE_UNITS.int = MAX_COMBINED_TEXTURE_IMAGE_UNITS;
+WebGlGetParametr.MAX_COMBINED_TEXTURE_IMAGE_UNITS.data = gl.getParameter(MAX_COMBINED_TEXTURE_IMAGE_UNITS);
 
-console.log("LOG: MAX_COMBINED_TEXTURE_IMAGE_UNITS + " + MAX_COMBINED_TEXTURE_IMAGE_UNITS);
-console.log(gl.getParameter(MAX_COMBINED_TEXTURE_IMAGE_UNITS));
+WebGlGetParametr.MAX_CUBE_MAP_TEXTURE_SIZE = {};
+WebGlGetParametr.MAX_CUBE_MAP_TEXTURE_SIZE.int = MAX_CUBE_MAP_TEXTURE_SIZE;
+WebGlGetParametr.MAX_CUBE_MAP_TEXTURE_SIZE.data = gl.getParameter(MAX_CUBE_MAP_TEXTURE_SIZE);
 
-console.log("LOG: MAX_CUBE_MAP_TEXTURE_SIZE + " + MAX_CUBE_MAP_TEXTURE_SIZE);
-console.log(gl.getParameter(MAX_CUBE_MAP_TEXTURE_SIZE));
+WebGlGetParametr.MAX_FRAGMENT_UNIFORM_VECTORS = {};
+WebGlGetParametr.MAX_FRAGMENT_UNIFORM_VECTORS.int = MAX_FRAGMENT_UNIFORM_VECTORS;
+WebGlGetParametr.MAX_FRAGMENT_UNIFORM_VECTORS.data = gl.getParameter(MAX_FRAGMENT_UNIFORM_VECTORS);
 
-console.log("LOG: MAX_FRAGMENT_UNIFORM_VECTORS + " + MAX_FRAGMENT_UNIFORM_VECTORS);
-console.log(gl.getParameter(MAX_FRAGMENT_UNIFORM_VECTORS));
+WebGlGetParametr.MAX_RENDERBUFFER_SIZE = {};
+WebGlGetParametr.MAX_RENDERBUFFER_SIZE.int = MAX_RENDERBUFFER_SIZE;
+WebGlGetParametr.MAX_RENDERBUFFER_SIZE.data = gl.getParameter(MAX_RENDERBUFFER_SIZE);
 
-console.log("LOG: MAX_RENDERBUFFER_SIZE + " + MAX_RENDERBUFFER_SIZE);
-console.log(gl.getParameter(MAX_RENDERBUFFER_SIZE));
+WebGlGetParametr.MAX_TEXTURE_IMAGE_UNITS = {};
+WebGlGetParametr.MAX_TEXTURE_IMAGE_UNITS.int = MAX_TEXTURE_IMAGE_UNITS;
+WebGlGetParametr.MAX_TEXTURE_IMAGE_UNITS.data = gl.getParameter(MAX_TEXTURE_IMAGE_UNITS);
 
-console.log("LOG: MAX_TEXTURE_IMAGE_UNITS + " + MAX_TEXTURE_IMAGE_UNITS);
-console.log(gl.getParameter(MAX_TEXTURE_IMAGE_UNITS));
+WebGlGetParametr.MAX_TEXTURE_SIZE = {};
+WebGlGetParametr.MAX_TEXTURE_SIZE.int = MAX_TEXTURE_SIZE;
+WebGlGetParametr.MAX_TEXTURE_SIZE.data = gl.getParameter(MAX_TEXTURE_SIZE);
 
-console.log("LOG: MAX_TEXTURE_SIZE + " + MAX_TEXTURE_SIZE);
-console.log(gl.getParameter(MAX_TEXTURE_SIZE));
+WebGlGetParametr.MAX_VARYING_VECTORS = {};
+WebGlGetParametr.MAX_VARYING_VECTORS.int = MAX_VARYING_VECTORS;
+WebGlGetParametr.MAX_VARYING_VECTORS.data = gl.getParameter(MAX_VARYING_VECTORS);
 
-console.log("LOG: MAX_VARYING_VECTORS + " + MAX_VARYING_VECTORS);
-console.log(gl.getParameter(MAX_VARYING_VECTORS));
+WebGlGetParametr.MAX_VERTEX_ATTRIBS = {};
+WebGlGetParametr.MAX_VERTEX_ATTRIBS.int = MAX_VERTEX_ATTRIBS;
+WebGlGetParametr.MAX_VERTEX_ATTRIBS.data = gl.getParameter(MAX_VERTEX_ATTRIBS);
 
-console.log("LOG: MAX_VERTEX_ATTRIBS + " + MAX_VERTEX_ATTRIBS);
-console.log(gl.getParameter(MAX_VERTEX_ATTRIBS));
+WebGlGetParametr.MAX_VERTEX_TEXTURE_IMAGE_UNITS = {};
+WebGlGetParametr.MAX_VERTEX_TEXTURE_IMAGE_UNITS.int = MAX_VERTEX_TEXTURE_IMAGE_UNITS;
+WebGlGetParametr.MAX_VERTEX_TEXTURE_IMAGE_UNITS.data = gl.getParameter(MAX_VERTEX_TEXTURE_IMAGE_UNITS);
 
-console.log("LOG: MAX_VERTEX_TEXTURE_IMAGE_UNITS + " + MAX_VERTEX_TEXTURE_IMAGE_UNITS);
-console.log(gl.getParameter(MAX_VERTEX_TEXTURE_IMAGE_UNITS));
+WebGlGetParametr.MAX_VERTEX_UNIFORM_VECTORS = {};
+WebGlGetParametr.MAX_VERTEX_UNIFORM_VECTORS.int = MAX_VERTEX_UNIFORM_VECTORS;
+WebGlGetParametr.MAX_VERTEX_UNIFORM_VECTORS.data = gl.getParameter(MAX_VERTEX_UNIFORM_VECTORS);
 
-console.log("LOG: MAX_VERTEX_UNIFORM_VECTORS + " + MAX_VERTEX_UNIFORM_VECTORS);
-console.log(gl.getParameter(MAX_VERTEX_UNIFORM_VECTORS));
+WebGlGetParametr.MAX_VIEWPORT_DIMS = {};
+WebGlGetParametr.MAX_VIEWPORT_DIMS.int = MAX_VIEWPORT_DIMS;
+WebGlGetParametr.MAX_VIEWPORT_DIMS.data = gl.getParameter(MAX_VIEWPORT_DIMS);
 
-console.log("LOG: MAX_VIEWPORT_DIMS + " + MAX_VIEWPORT_DIMS);
-console.log(gl.getParameter(MAX_VIEWPORT_DIMS));
+WebGlGetParametr.PACK_ALIGNMENT = {};
+WebGlGetParametr.PACK_ALIGNMENT.int = PACK_ALIGNMENT;
+WebGlGetParametr.PACK_ALIGNMENT.data = gl.getParameter(PACK_ALIGNMENT);
 
-console.log("LOG: PACK_ALIGNMENT + " + PACK_ALIGNMENT);
-console.log(gl.getParameter(PACK_ALIGNMENT));
+WebGlGetParametr.POLYGON_OFFSET_FACTOR = {};
+WebGlGetParametr.POLYGON_OFFSET_FACTOR.int = POLYGON_OFFSET_FACTOR;
+WebGlGetParametr.POLYGON_OFFSET_FACTOR.data = gl.getParameter(POLYGON_OFFSET_FACTOR);
 
-console.log("LOG: POLYGON_OFFSET_FACTOR + " + POLYGON_OFFSET_FACTOR);
-console.log(gl.getParameter(POLYGON_OFFSET_FACTOR));
+WebGlGetParametr.POLYGON_OFFSET_FILL = {};
+WebGlGetParametr.POLYGON_OFFSET_FILL.int = POLYGON_OFFSET_FILL;
+WebGlGetParametr.POLYGON_OFFSET_FILL.data = gl.getParameter(POLYGON_OFFSET_FILL);
 
-console.log("LOG: POLYGON_OFFSET_FILL + " + POLYGON_OFFSET_FILL);
-console.log(gl.getParameter(POLYGON_OFFSET_FILL));
+WebGlGetParametr.POLYGON_OFFSET_UNITS = {};
+WebGlGetParametr.POLYGON_OFFSET_UNITS.int = POLYGON_OFFSET_UNITS;
+WebGlGetParametr.POLYGON_OFFSET_UNITS.data = gl.getParameter(POLYGON_OFFSET_UNITS);
 
-console.log("LOG: POLYGON_OFFSET_UNITS + " + POLYGON_OFFSET_UNITS);
-console.log(gl.getParameter(POLYGON_OFFSET_UNITS));
+WebGlGetParametr.RED_BITS = {};
+WebGlGetParametr.RED_BITS.int = RED_BITS;
+WebGlGetParametr.RED_BITS.data = gl.getParameter(RED_BITS);
 
-console.log("LOG: RED_BITS + " + RED_BITS);
-console.log(gl.getParameter(RED_BITS));
+WebGlGetParametr.RENDERBUFFER_BINDING = {};
+WebGlGetParametr.RENDERBUFFER_BINDING.int = RENDERBUFFER_BINDING;
+WebGlGetParametr.RENDERBUFFER_BINDING.data = gl.getParameter(RENDERBUFFER_BINDING);
 
-console.log("LOG: RENDERBUFFER_BINDING + " + RENDERBUFFER_BINDING);
-console.log(gl.getParameter(RENDERBUFFER_BINDING));
+WebGlGetParametr.RENDERER = {};
+WebGlGetParametr.RENDERER.int = RENDERER;
+WebGlGetParametr.RENDERER.data = gl.getParameter(RENDERER);
 
-console.log("LOG: RENDERER + " + RENDERER);
-console.log(gl.getParameter(RENDERER));
+WebGlGetParametr.SAMPLE_BUFFERS = {};
+WebGlGetParametr.SAMPLE_BUFFERS.int = SAMPLE_BUFFERS;
+WebGlGetParametr.SAMPLE_BUFFERS.data = gl.getParameter(SAMPLE_BUFFERS);
 
-console.log("LOG: SAMPLE_BUFFERS + " + SAMPLE_BUFFERS);
-console.log(gl.getParameter(SAMPLE_BUFFERS));
+WebGlGetParametr.SAMPLE_COVERAGE_INVERT = {};
+WebGlGetParametr.SAMPLE_COVERAGE_INVERT.int = SAMPLE_COVERAGE_INVERT;
+WebGlGetParametr.SAMPLE_COVERAGE_INVERT.data = gl.getParameter(SAMPLE_COVERAGE_INVERT);
 
-console.log("LOG: SAMPLE_COVERAGE_INVERT + " + SAMPLE_COVERAGE_INVERT);
-console.log(gl.getParameter(SAMPLE_COVERAGE_INVERT));
+WebGlGetParametr.SAMPLE_COVERAGE_VALUE = {};
+WebGlGetParametr.SAMPLE_COVERAGE_VALUE.int = SAMPLE_COVERAGE_VALUE;
+WebGlGetParametr.SAMPLE_COVERAGE_VALUE.data = gl.getParameter(SAMPLE_COVERAGE_VALUE);
 
-console.log("LOG: SAMPLE_COVERAGE_VALUE + " + SAMPLE_COVERAGE_VALUE);
-console.log(gl.getParameter(SAMPLE_COVERAGE_VALUE));
+WebGlGetParametr.SAMPLES = {};
+WebGlGetParametr.SAMPLES.int = SAMPLES;
+WebGlGetParametr.SAMPLES.data = gl.getParameter(SAMPLES);
 
-console.log("LOG: SAMPLES + " + SAMPLES);
-console.log(gl.getParameter(SAMPLES));
+WebGlGetParametr.SCISSOR_BOX = {};
+WebGlGetParametr.SCISSOR_BOX.int = SCISSOR_BOX;
+WebGlGetParametr.SCISSOR_BOX.data = gl.getParameter(SCISSOR_BOX);
 
-console.log("LOG: SCISSOR_BOX + " + SCISSOR_BOX);
-console.log(gl.getParameter(SCISSOR_BOX));
+WebGlGetParametr.SCISSOR_TEST = {};
+WebGlGetParametr.SCISSOR_TEST.int = SCISSOR_TEST;
+WebGlGetParametr.SCISSOR_TEST.data = gl.getParameter(SCISSOR_TEST);
 
-console.log("LOG: SCISSOR_TEST + " + SCISSOR_TEST);
-console.log(gl.getParameter(SCISSOR_TEST));
+WebGlGetParametr.SHADING_LANGUAGE_VERSION = {};
+WebGlGetParametr.SHADING_LANGUAGE_VERSION.int = SHADING_LANGUAGE_VERSION;
+WebGlGetParametr.SHADING_LANGUAGE_VERSION.data = gl.getParameter(SHADING_LANGUAGE_VERSION);
 
-console.log("LOG: SHADING_LANGUAGE_VERSION + " + SHADING_LANGUAGE_VERSION);
-console.log(gl.getParameter(SHADING_LANGUAGE_VERSION));
+WebGlGetParametr.STENCIL_BACK_FAIL = {};
+WebGlGetParametr.STENCIL_BACK_FAIL.int = STENCIL_BACK_FAIL;
+WebGlGetParametr.STENCIL_BACK_FAIL.data = gl.getParameter(STENCIL_BACK_FAIL);
 
-console.log("LOG: STENCIL_BACK_FAIL + " + STENCIL_BACK_FAIL);
-console.log(gl.getParameter(STENCIL_BACK_FAIL));
+WebGlGetParametr.STENCIL_BACK_FUNC = {};
+WebGlGetParametr.STENCIL_BACK_FUNC.int = STENCIL_BACK_FUNC;
+WebGlGetParametr.STENCIL_BACK_FUNC.data = gl.getParameter(STENCIL_BACK_FUNC);
 
-console.log("LOG: STENCIL_BACK_FUNC + " + STENCIL_BACK_FUNC);
-console.log(gl.getParameter(STENCIL_BACK_FUNC));
+WebGlGetParametr.STENCIL_BACK_PASS_DEPTH_FAIL = {};
+WebGlGetParametr.STENCIL_BACK_PASS_DEPTH_FAIL.int = STENCIL_BACK_PASS_DEPTH_FAIL;
+WebGlGetParametr.STENCIL_BACK_PASS_DEPTH_FAIL.data = gl.getParameter(STENCIL_BACK_PASS_DEPTH_FAIL);
 
-console.log("LOG: STENCIL_BACK_PASS_DEPTH_FAIL + " + STENCIL_BACK_PASS_DEPTH_FAIL);
-console.log(gl.getParameter(STENCIL_BACK_PASS_DEPTH_FAIL));
+WebGlGetParametr.STENCIL_BACK_PASS_DEPTH_PASS = {};
+WebGlGetParametr.STENCIL_BACK_PASS_DEPTH_PASS.int = STENCIL_BACK_PASS_DEPTH_PASS;
+WebGlGetParametr.STENCIL_BACK_PASS_DEPTH_PASS.data = gl.getParameter(STENCIL_BACK_PASS_DEPTH_PASS);
 
-console.log("LOG: STENCIL_BACK_PASS_DEPTH_PASS + " + STENCIL_BACK_PASS_DEPTH_PASS);
-console.log(gl.getParameter(STENCIL_BACK_PASS_DEPTH_PASS));
+WebGlGetParametr.STENCIL_BACK_REF = {};
+WebGlGetParametr.STENCIL_BACK_REF.int = STENCIL_BACK_REF;
+WebGlGetParametr.STENCIL_BACK_REF.data = gl.getParameter(STENCIL_BACK_REF);
 
-console.log("LOG: STENCIL_BACK_REF + " + STENCIL_BACK_REF);
-console.log(gl.getParameter(STENCIL_BACK_REF));
+WebGlGetParametr.STENCIL_BACK_VALUE_MASK = {};
+WebGlGetParametr.STENCIL_BACK_VALUE_MASK.int = STENCIL_BACK_VALUE_MASK;
+WebGlGetParametr.STENCIL_BACK_VALUE_MASK.data = gl.getParameter(STENCIL_BACK_VALUE_MASK);
 
-console.log("LOG: STENCIL_BACK_VALUE_MASK + " + STENCIL_BACK_VALUE_MASK);
-console.log(gl.getParameter(STENCIL_BACK_VALUE_MASK));
+WebGlGetParametr.STENCIL_BACK_WRITEMASK = {};
+WebGlGetParametr.STENCIL_BACK_WRITEMASK.int = STENCIL_BACK_WRITEMASK;
+WebGlGetParametr.STENCIL_BACK_WRITEMASK.data = gl.getParameter(STENCIL_BACK_WRITEMASK);
 
-console.log("LOG: STENCIL_BACK_WRITEMASK + " + STENCIL_BACK_WRITEMASK);
-console.log(gl.getParameter(STENCIL_BACK_WRITEMASK));
+WebGlGetParametr.STENCIL_BITS = {};
+WebGlGetParametr.STENCIL_BITS.int = STENCIL_BITS;
+WebGlGetParametr.STENCIL_BITS.data = gl.getParameter(STENCIL_BITS);
 
-console.log("LOG: STENCIL_BITS + " + STENCIL_BITS);
-console.log(gl.getParameter(STENCIL_BITS));
+WebGlGetParametr.STENCIL_CLEAR_VALUE = {};
+WebGlGetParametr.STENCIL_CLEAR_VALUE.int = STENCIL_CLEAR_VALUE;
+WebGlGetParametr.STENCIL_CLEAR_VALUE.data = gl.getParameter(STENCIL_CLEAR_VALUE);
 
-console.log("LOG: STENCIL_CLEAR_VALUE + " + STENCIL_CLEAR_VALUE);
-console.log(gl.getParameter(STENCIL_CLEAR_VALUE));
+WebGlGetParametr.STENCIL_FAIL = {};
+WebGlGetParametr.STENCIL_FAIL.int = STENCIL_FAIL;
+WebGlGetParametr.STENCIL_FAIL.data = gl.getParameter(STENCIL_FAIL);
 
-console.log("LOG: STENCIL_FAIL + " + STENCIL_FAIL);
-console.log(gl.getParameter(STENCIL_FAIL));
+WebGlGetParametr.STENCIL_FUNC = {};
+WebGlGetParametr.STENCIL_FUNC.int = STENCIL_FUNC;
+WebGlGetParametr.STENCIL_FUNC.data = gl.getParameter(STENCIL_FUNC);
 
-console.log("LOG: STENCIL_FUNC + " + STENCIL_FUNC);
-console.log(gl.getParameter(STENCIL_FUNC));
+WebGlGetParametr.STENCIL_PASS_DEPTH_FAIL = {};
+WebGlGetParametr.STENCIL_PASS_DEPTH_FAIL.int = STENCIL_PASS_DEPTH_FAIL;
+WebGlGetParametr.STENCIL_PASS_DEPTH_FAIL.data = gl.getParameter(STENCIL_PASS_DEPTH_FAIL);
 
-console.log("LOG: STENCIL_PASS_DEPTH_FAIL + " + STENCIL_PASS_DEPTH_FAIL);
-console.log(gl.getParameter(STENCIL_PASS_DEPTH_FAIL));
+WebGlGetParametr.STENCIL_PASS_DEPTH_PASS = {};
+WebGlGetParametr.STENCIL_PASS_DEPTH_PASS.int = STENCIL_PASS_DEPTH_PASS;
+WebGlGetParametr.STENCIL_PASS_DEPTH_PASS.data = gl.getParameter(STENCIL_PASS_DEPTH_PASS);
 
-console.log("LOG: STENCIL_PASS_DEPTH_PASS + " + STENCIL_PASS_DEPTH_PASS);
-console.log(gl.getParameter(STENCIL_PASS_DEPTH_PASS));
+WebGlGetParametr.STENCIL_REF = {};
+WebGlGetParametr.STENCIL_REF.int = STENCIL_REF;
+WebGlGetParametr.STENCIL_REF.data = gl.getParameter(STENCIL_REF);
 
-console.log("LOG: STENCIL_REF + " + STENCIL_REF);
-console.log(gl.getParameter(STENCIL_REF));
+WebGlGetParametr.STENCIL_TEST = {};
+WebGlGetParametr.STENCIL_TEST.int = STENCIL_TEST;
+WebGlGetParametr.STENCIL_TEST.data = gl.getParameter(STENCIL_TEST);
 
-console.log("LOG: STENCIL_TEST + " + STENCIL_TEST);
-console.log(gl.getParameter(STENCIL_TEST));
+WebGlGetParametr.STENCIL_VALUE_MASK = {};
+WebGlGetParametr.STENCIL_VALUE_MASK.int = STENCIL_VALUE_MASK;
+WebGlGetParametr.STENCIL_VALUE_MASK.data = gl.getParameter(STENCIL_VALUE_MASK);
 
-console.log("LOG: STENCIL_VALUE_MASK + " + STENCIL_VALUE_MASK);
-console.log(gl.getParameter(STENCIL_VALUE_MASK));
+WebGlGetParametr.STENCIL_WRITEMASK = {};
+WebGlGetParametr.STENCIL_WRITEMASK.int = STENCIL_WRITEMASK;
+WebGlGetParametr.STENCIL_WRITEMASK.data = gl.getParameter(STENCIL_WRITEMASK);
 
-console.log("LOG: STENCIL_WRITEMASK + " + STENCIL_WRITEMASK);
-console.log(gl.getParameter(STENCIL_WRITEMASK));
+WebGlGetParametr.SUBPIXEL_BITS = {};
+WebGlGetParametr.SUBPIXEL_BITS.int = SUBPIXEL_BITS;
+WebGlGetParametr.SUBPIXEL_BITS.data = gl.getParameter(SUBPIXEL_BITS);
 
-console.log("LOG: SUBPIXEL_BITS + " + SUBPIXEL_BITS);
-console.log(gl.getParameter(SUBPIXEL_BITS));
+WebGlGetParametr.TEXTURE_BINDING_2D = {};
+WebGlGetParametr.TEXTURE_BINDING_2D.int = TEXTURE_BINDING_2D;
+WebGlGetParametr.TEXTURE_BINDING_2D.data = gl.getParameter(TEXTURE_BINDING_2D);
 
-console.log("LOG: TEXTURE_BINDING_2D + " + TEXTURE_BINDING_2D);
-console.log(gl.getParameter(TEXTURE_BINDING_2D));
+WebGlGetParametr.TEXTURE_BINDING_CUBE_MAP = {};
+WebGlGetParametr.TEXTURE_BINDING_CUBE_MAP.int = TEXTURE_BINDING_CUBE_MAP;
+WebGlGetParametr.TEXTURE_BINDING_CUBE_MAP.data = gl.getParameter(TEXTURE_BINDING_CUBE_MAP);
 
-console.log("LOG: TEXTURE_BINDING_CUBE_MAP + " + TEXTURE_BINDING_CUBE_MAP);
-console.log(gl.getParameter(TEXTURE_BINDING_CUBE_MAP));
+WebGlGetParametr.UNPACK_ALIGNMENT = {};
+WebGlGetParametr.UNPACK_ALIGNMENT.int = UNPACK_ALIGNMENT;
+WebGlGetParametr.UNPACK_ALIGNMENT.data = gl.getParameter(UNPACK_ALIGNMENT);
 
-console.log("LOG: UNPACK_ALIGNMENT + " + UNPACK_ALIGNMENT);
-console.log(gl.getParameter(UNPACK_ALIGNMENT));
+WebGlGetParametr.UNPACK_COLORSPACE_CONVERSION_WEBGL = {};
+WebGlGetParametr.UNPACK_COLORSPACE_CONVERSION_WEBGL.int = UNPACK_COLORSPACE_CONVERSION_WEBGL;
+WebGlGetParametr.UNPACK_COLORSPACE_CONVERSION_WEBGL.data = gl.getParameter(UNPACK_COLORSPACE_CONVERSION_WEBGL);
 
-console.log("LOG: UNPACK_COLORSPACE_CONVERSION_WEBGL + " + UNPACK_COLORSPACE_CONVERSION_WEBGL);
-console.log(gl.getParameter(UNPACK_COLORSPACE_CONVERSION_WEBGL));
+WebGlGetParametr.UNPACK_FLIP_Y_WEBGL = {};
+WebGlGetParametr.UNPACK_FLIP_Y_WEBGL.int = UNPACK_FLIP_Y_WEBGL;
+WebGlGetParametr.UNPACK_FLIP_Y_WEBGL.data = gl.getParameter(UNPACK_FLIP_Y_WEBGL);
 
-console.log("LOG: UNPACK_FLIP_Y_WEBGL + " + UNPACK_FLIP_Y_WEBGL);
-console.log(gl.getParameter(UNPACK_FLIP_Y_WEBGL));
+WebGlGetParametr.UNPACK_PREMULTIPLY_ALPHA_WEBGL = {};
+WebGlGetParametr.UNPACK_PREMULTIPLY_ALPHA_WEBGL.int = UNPACK_PREMULTIPLY_ALPHA_WEBGL;
+WebGlGetParametr.UNPACK_PREMULTIPLY_ALPHA_WEBGL.data = gl.getParameter(UNPACK_PREMULTIPLY_ALPHA_WEBGL);
 
-console.log("LOG: UNPACK_PREMULTIPLY_ALPHA_WEBGL + " + UNPACK_PREMULTIPLY_ALPHA_WEBGL);
-console.log(gl.getParameter(UNPACK_PREMULTIPLY_ALPHA_WEBGL));
+WebGlGetParametr.VENDOR = {};
+WebGlGetParametr.VENDOR.int = VENDOR;
+WebGlGetParametr.VENDOR.data = gl.getParameter(VENDOR);
 
-console.log("LOG: VENDOR + " + VENDOR);
-console.log(gl.getParameter(VENDOR));
+WebGlGetParametr.VERSION = {};
+WebGlGetParametr.VERSION.int = VERSION;
+WebGlGetParametr.VERSION.data = gl.getParameter(VERSION);
 
-console.log("LOG: VERSION + " + VERSION);
-console.log(gl.getParameter(VERSION));
+WebGlGetParametr.VIEWPORT = {};
+WebGlGetParametr.VIEWPORT.int = VIEWPORT;
+WebGlGetParametr.VIEWPORT.data = gl.getParameter(VIEWPORT);
 
-console.log("LOG: VIEWPORT + " + VIEWPORT);
-console.log(gl.getParameter(VIEWPORT));
+WebGlGetParametr.ext_UNMASKED_VENDOR_WEBGL = {};
+WebGlGetParametr.ext_UNMASKED_VENDOR_WEBGL.int = ext_UNMASKED_VENDOR_WEBGL;
+WebGlGetParametr.ext_UNMASKED_VENDOR_WEBGL.data = gl.getParameter(ext_UNMASKED_VENDOR_WEBGL);
 
+WebGlGetParametr.ext_UNMASKED_RENDERER_WEBGL = {};
+WebGlGetParametr.ext_UNMASKED_RENDERER_WEBGL.int = ext_UNMASKED_RENDERER_WEBGL;
+WebGlGetParametr.ext_UNMASKED_RENDERER_WEBGL.data = gl.getParameter(ext_UNMASKED_RENDERER_WEBGL);
 
-https://developer.mozilla.org/en-US/docs/Web/API/WebGLRenderingContext/getParameter
 
-  debugInfo = gl.getExtension('WEBGL_debug_renderer_info');
-  vendor = gl.getParameter(debugInfo.UNMASKED_VENDOR_WEBGL);
-  renderer = gl.getParameter(debugInfo.UNMASKED_RENDERER_WEBGL);
+console.log(WebGlGetParametr);
+copy(WebGlGetParametr);
